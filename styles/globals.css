@@ -5,7 +5,7 @@
 }
 
 .body{
-    font-family: Arial;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 .header-inner-content{
@@ -214,6 +214,28 @@ main{
 
 .cols-3 img{
     max-width: 100%;
+}
+
+
+.imagem-com-texto {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  margin: 10px;
+}
+
+.imagem-com-texto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.textos-abaixo-imagens {
+  margin-top: 0.3em;
+  font-size: 40px;
+  color: white;
+  text-align: center;
 }
 
 .cols-4 img{
