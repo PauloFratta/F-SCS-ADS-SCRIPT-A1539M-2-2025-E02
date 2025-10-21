@@ -1,134 +1,140 @@
 * {
-    box-sizing: border-box;
-    margin: 10;
-    padding: 10;
+    box-sizing: border-box; /* Inclui padding e border no cálculo total de largura/altura dos elementos */
+    margin: 0; /* Remove margem padrão (usaremos valores controlados em rem) */
+    padding: 0; /* Remove padding padrão */
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #F5E7D4;
+    font-family: Arial, Helvetica, sans-serif; /* Define a família de fontes do corpo do site */
+    background-color: #F5E7D4; /* Define a cor de fundo da página */
+    font-size: 1rem; /* Define tamanho base da fonte (1rem = 16px padrão) */
 }
 
-/* Navbar */
 .navbar {
-    padding: 0.5rem 1rem;
-    position: sticky; /* DE VOLTA */
-    top: 0;           /* DE VOLTA */
-    border-bottom: 1px solid #ffff; 
+    padding: 0.5rem 1rem; /* Define espaçamento interno da barra de navegação */
+    position: sticky;  /* Mantém a barra fixa no topo durante a rolagem */
+    top: 0;            /* Fixa a navbar na parte superior da janela */
+    border-bottom: 0.0625rem solid #ffff;  /* Linha branca abaixo da navbar (1px convertido em rem) */
 }
 
 .header-inner-content {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
+    max-width: 70%; /* Limita a largura máxima do conteúdo interno do cabeçalho */
+    margin: 0 auto; /* Centraliza horizontalmente o conteúdo */
+    display: flex; /* Usa flexbox para organizar os elementos internos em linha */
 }
 
 .navbar .header-inner-content {
-    justify-content: flex-end; 
+    justify-content: flex-end;  /* Alinha o conteúdo da navbar à direita */
 }
 
+/* Menu header */
 .navbar nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem; /* --- espaço entre as sessões do navbar--- */
-    cursor: pointer;
-    transition: all 0.2s;
+    display: flex; /* Exibe os itens do menu em linha */
+    list-style: none; /* Remove os marcadores padrão da lista */
+    gap: 2rem; /* Espaço entre os itens do menu (32px equivalente) */
+    cursor: pointer; /* Mostra o cursor de mão ao passar sobre o menu */
+    transition: all 0.2s; /* Adiciona transição suave para mudanças de estilo */
 }
 
 .navbar nav ul li a {
-    text-decoration: none;
-    color: #5C8070;
-    font-size: 1.1rem;
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #5C8070; /* Define a cor dos links do menu */
+    font-size: 1.1rem; /* Define o tamanho da fonte dos links*/
 }
 
 /* Header */
 header {
-    padding: 2rem;
-    
-    /* Calcula a altura restante tirando o espaço da navbar (aprox.) */
-    min-height: calc(100vh - 60px); 
-    display: flex;
-    align-items: center;     /* Alinha o conteúdo (header-inner-content) verticalmente */
-    justify-content:space-between; /* Alinha o conteúdo (header-inner-content) horizontalmente */
+    padding: 6%; /* Define espaçamento interno do header proporcional à tela */
+    display: flex; /* Usa flexbox para alinhar o conteúdo */
+    align-items: center; /* Centraliza verticalmente os elementos do header */
+    justify-content: space-between; /* Distribui o conteúdo igualmente nas extremidades */
 }
 
 .header-bottom-side {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4rem;
+    display: flex; /* Usa flexbox para alinhar os elementos lado a lado */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    justify-content: center; /* Centraliza os elementos horizontalmente */
+    gap: 2rem; /* Espaço entre a logo e o texto */
 }
 
 /* Imagem à esquerda */
 .logoReveste {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
+    flex: 1; /* Faz o elemento ocupar 1 parte do espaço disponível */
+    display: flex; /* Ativa flexbox no contêiner da logo */
+    justify-content: flex-end; /* Alinha a imagem da logo à direita dentro da área dela */
 }
 
 .logoReveste img {
-    width: 150%;
-    height: auto;
+    width: 150%; /* Mantém o mesmo efeito visual de destaque */
+    height: auto; /* Mantém a proporção da imagem */
+    max-width: 60rem; /* Define um limite máximo de largura (288px) para evitar distorções */
 }
 
 /* Texto à direita */
 .header-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap:1rem;
-    color: #333;
+    flex: 1; /* Ocupa a outra metade do espaço (mesmo peso que a logo) */
+    display: flex; /* Usa flexbox para organizar o conteúdo interno */
+    flex-direction: column; /* Organiza o conteúdo em coluna */
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    color: #333; /* Define a cor principal do texto */
 }
 
 .header-text h2 {
-    font-size: 2rem;
-    color: #5C8070;
-    font-weight: bold;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: clamp(1rem, 2vw, 2rem); /* Título ajustável conforme largura da tela */
+    color: #5C8070; /* Define a cor verde principal da marca */
+    font-weight: bold; /* Deixa o título em negrito */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif; /* Fonte estilizada para o título */
 }
 
 .header-text p {
-    max-width: 500px;
-    line-height: 1.5;
-    background-color: transparent;
-    color: #444;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: justify;
+    max-width: 50rem; /* Limita a largura máxima (600px equivalente) */
+    line-height: 1.5; /* Define o espaçamento entre linhas */
+    background-color: transparent; /* Mantém o fundo transparente */
+    color: #444; /* Define uma cor levemente mais escura para o texto */
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* Define a fonte dos parágrafos */
+    text-align: justify; /* Justifica o texto (alinha dos dois lados) */
+    font-size: 1rem; /* Tamanho base da fonte */
+    margin-bottom: 1rem; /* Espaçamento inferior entre parágrafos */
 }
 
 .header-link {
-    text-decoration: none;
-    color: #5C8070;
-    font-weight: bold;
-    font-size: 1rem;
-    background-color: transparent;
-    transition: color 0.2s;
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #5C8070; /* Define a cor verde padrão dos links */
+    font-weight: bold; /* Deixa o texto dos links em negrito */
+    font-size: 1rem; /* Define o tamanho da fonte dos links */
+    background-color: transparent; /* Mantém o fundo transparente */
+    transition: color 0.2s; /* Cria uma transição suave de cor ao passar o mouse */
+    margin-right: 1rem; /* Espaço entre os botões/links */
 }
 
 .header-link:hover {
-    color: #555;
+    color: #555; /* Muda a cor do link ao passar o mouse */
 }
 
 /* Responsivo */
-@media (max-width: 801px) {
+@media (max-width: 50rem) { /* Regras para telas menores que 800px (convertido de 801px) */
     /* Ajusta o header para telas menores */
     header {
-        min-height: auto; /* Remove a altura mínima */
-        padding-top: 4rem; /* Adiciona espaço extra em cima */
+        min-height: auto; /* Remove a altura mínima (se houver) */
+        padding-top: 4rem; /* Adiciona espaço extra no topo */
     }
     
     .header-bottom-side {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: column; /* Empilha os elementos verticalmente */
+        text-align: center; /* Centraliza o texto */
     }
 
     .logoReveste {
-        justify-content: center;
+        justify-content: center; /* Centraliza a logo na tela */
     }
 
     .header-text {
-        align-items: center;
+        align-items: center; /* Centraliza o conteúdo de texto */
+    }
+
+    .header-text h2 {
+        font-size: clamp(1.25rem, 5vw, 2rem); /* Reduz um pouco o título em telas pequenas */
     }
 }
