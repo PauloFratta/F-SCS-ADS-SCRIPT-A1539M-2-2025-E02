@@ -564,5 +564,11 @@ body {
         .carousel-container {
              pointer-events: none;
         }
+
+        .navbar {
+            position: relative;
+            z-index: 99999 !important;
+            pointer-events: auto !important;
+        }
     }
 }
