@@ -554,5 +554,15 @@ body {
         .carousel-container {
             padding: 0 9px;
         }
+
+        .navbar {
+            position: relative;
+            z-index: 9999;
+        }
+
+        .decor-ramo,
+        .carousel-container {
+             pointer-events: none;
+        }
     }
 }
