@@ -41,6 +41,9 @@ body {
     color: #5C8070; /* Define a cor dos links do menu */
     font-size: 1.1rem; /* Define o tamanho da fonte dos links*/
 }
+.navbar nav ul li a:hover{
+    color:#B9735B;
+}
 
 /* Header */
 header {
@@ -79,9 +82,12 @@ header {
     justify-content: center; /* Centraliza o conteúdo verticalmente */
     color: #333; /* Define a cor principal do texto */
 }
+.header-text strong{
+    color: #5C8070;
+}
 
 .header-text h2 {
-    font-size: clamp(1rem, 2vw, 2rem); /* Título ajustável conforme largura da tela */
+    font-size: clamp(1.1rem); /* Título ajustável conforme largura da tela */
     color: #5C8070; /* Define a cor verde principal da marca */
     font-weight: bold; /* Deixa o título em negrito */
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
@@ -101,7 +107,7 @@ header {
 
 .header-link {
     text-decoration: none; /* Remove o sublinhado dos links */
-    color: #5C8070; /* Define a cor verde padrão dos links */
+    color: #B9735B; /* Define a cor verde padrão dos links */
     font-weight: bold; /* Deixa o texto dos links em negrito */
     font-size: 1rem; /* Define o tamanho da fonte dos links */
     background-color: transparent; /* Mantém o fundo transparente */
@@ -110,7 +116,7 @@ header {
 }
 
 .header-link:hover {
-    color: #555; /* Muda a cor do link ao passar o mouse */
+    color: #5C8070; /* Muda a cor do link ao passar o mouse */
 }
 
 /* Responsivo */
