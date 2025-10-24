@@ -554,15 +554,5 @@ body {
         .carousel-container {
             padding: 0 9px;
         }
-
-        .navbar {
-            position: relative;
-            z-index: 10000;
-        }
-
-        .carousel-container {
-            position: relative;
-            z-index: 1;
-            }
     }
 }
