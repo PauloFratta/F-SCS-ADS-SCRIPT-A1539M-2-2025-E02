@@ -1,10 +1,13 @@
 <?php
 // config/database.php
 
-$host = "localhost";
-$usuario = "root"; // Padrão do XAMPP
-$senha = "";       // Padrão do XAMPP é vazio
-$banco = "sistema_reveste"; // O nome exato que criamos no Passo 1
+// Dados extraídos do seu painel InfinityFree
+$host = "sql304.infinityfree.com";        // MySQL Hostname
+$usuario = "if0_40592186";                // MySQL Username
+$banco = "if0_40592186_sistema_reveste";  // MySQL Database Name
+
+// A SENHA VOCÊ PRECISA COPIAR DO PAINEL (clique em "Show" ou "Copy" lá)
+$senha = "Mur1c0c4"; 
 
 // Cria a conexão
 $conn = new mysqli($host, $usuario, $senha, $banco);
