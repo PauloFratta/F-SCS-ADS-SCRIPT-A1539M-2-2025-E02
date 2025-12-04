@@ -1,12 +1,12 @@
 <?php
 // config/database.php
 
-// Dados extraídos do seu painel InfinityFree
+// Dados extraídos do  painel InfinityFree
 $host = "sql304.infinityfree.com";        // MySQL Hostname
 $usuario = "if0_40592186";                // MySQL Username
 $banco = "if0_40592186_sistema_reveste";  // MySQL Database Name
 
-// A SENHA VOCÊ PRECISA COPIAR DO PAINEL (clique em "Show" ou "Copy" lá)
+//senha do banco de dados
 $senha = "Mur1c0c4"; 
 
 // Cria a conexão
