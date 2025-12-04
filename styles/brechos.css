@@ -1,0 +1,558 @@
+/* CSS da página costureiros.css - independente do global*/
+
+/* 1- STILOS BÁSICOS*/
+
+/* reset básico quando carrega a página */
+* {
+    box-sizing: border-box;
+    /* Faz com que o padding e a borda não aumentem o tamanho final do elemento */
+    margin: 0;
+    /* Remove todas as margens externas padrão */
+    padding: 0;
+    /* Remove todos os espaçamentos internos padrão */
+}
+
+/* Body da página */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #F5E7D4;
+}
+
+/* Barra de Navegação (Navbar) */
+.navbar {
+    padding: 0.5rem 1rem;
+    /* Espaçamento interno */
+    position: sticky;
+    /* Faz a navbar grudar no topo quando o usuário rola a página */
+    top: 0;
+    /* Segura da navbar no topo (0) */
+    border-bottom: 0.0625rem solid #ffff;
+    /* Linha branca sutil abaixo da navbar */
+    z-index: 100;
+    /* Garante que a navbar fique na frente de outros elementos  */
+    background-color: #F5E7D4;
+    min-height: 2.8rem;
+}
+
+/* Container do corpo da página para centralizar o carrossel */
+.header-inner-content {
+    max-width: 70%;
+    /* Limita a largura máxima dos conteúdos */
+    margin: 0 auto;
+    /* Centraliza o container horizontalmente */
+    display: flex;
+    /* Ativa o Flexbox para alinhar os itens  */
+    justify-content: center;
+    /* Centraliza o carrossel container no meio */
+}
+
+/* Container dentro da navbar */
+.navbar .header-inner-content {
+    justify-content: space-between;
+    /* Coloca espaço MÁXIMO  pra o que vem dentro dele */
+    align-items: center;
+    /* Alinha o título e os links no centro */
+}
+
+/* Lista ul de links dentro da navbar */
+.navbar nav ul {
+    display: flex;
+    /* Coloca os itens da lista (li) lado a lado */
+    list-style: none;
+    /* Remove as bolinhas da lista */
+    gap: 2rem;
+    /* Cria um espaço de 2rem entre Home, Costureiros e Brechós */
+    cursor: pointer;
+    /* Mostra o cursor de mãozinha */
+    transition: all 0.2s;
+    /* Animação suave para qualquer mudança */
+}
+
+/* Links a dentro da lista da navbar */
+.navbar nav ul li a {
+    text-decoration: none;
+    /* Remove o sublinhado padrão dos links */
+    color: #5C8070;
+    font-size: 1.1rem;
+}
+
+/* 2. ESTILOS DA PÁGINA */
+
+/* Título "Conheça Nossos Costureiros" que fica na navbar */
+.navbar-title {
+    font-size: 1.5rem;
+    color: #5C8070;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0;
+    /* Remove a margem padrão do h2 */
+}
+
+/* Container principal do conteúdo abaixo da navbar */
+.page-content {
+    padding: 2rem 0;
+    /* Adiciona um espaço interno em cima e embaixo da seção do carrossel */
+}
+
+/* Carrossel */
+
+/* O container que segura o carrossel, botões e decorações de ramos */
+.carousel-container {
+    position: relative;
+    /* Define este container  para posicionar botões e decorações */
+    width: 100%;
+    /* Ocupa 100% da largura do .header-inner-content */
+    max-width: 1000px;
+    /* Limita a largura máxima do carrossel */
+    margin: 0 auto;
+    /* Centraliza o carrossel caso .header-inner-content seja maior */
+    padding: 0 70px;
+    /* Cria espaço nas laterais para os botões para não cobrirem o card */
+    box-sizing: border-box;
+    /* Garante que o padding não aumente a largura total */
+}
+
+/* Janela visível do carrossel */
+.carousel-viewport {
+    overflow: hidden;
+    /* Esconde os outros slides que estão fora da janela */
+    width: 100%;
+}
+
+/* Trilho" que segura TODOS os slides e que se move */
+.carousel-track {
+    display: flex;
+    /* Coloca todos os slides .profile-card lado a lado na horizontal */
+    transition: transform 0.5s ease-in-out;
+    /* Define a animação de deslizar (duração de 0.5s) */
+}
+
+/* Card individual de cada costureiro */
+.profile-card {
+    flex: 0 0 100%;
+    /* Faz com que CADA slide ocupe 100% da largura do .carousel-viewport */
+    box-sizing: border-box;
+    padding: 2.5rem;
+    /* Espaçamento interno grande do card */
+    display: flex;
+    /* Ativa flexbox para alinhar a imagem e o texto lado a lado */
+    align-items: center;
+    /* Centraliza a imagem e o texto no centro */
+    gap: 2rem;
+    /* Espaço entre a imagem e o bloco de texto */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Fundo branco como semitransparente */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Sombra  */
+    min-height: 450px;
+    /* Altura mínima para o card parecer "maior" */
+    position: relative;
+    /* Define como referencia para a imagem do coração com ramos */
+    /* overflow: hidden; Esconde partes das decorações que vazam do card */
+}
+
+/* Container da foto do costureiro  */
+.profile-image {
+    flex-basis: 300px;
+    /* Define um tamanho base fixo pra imagem */
+    flex-shrink: 0;
+    /* Impede que o container da imagem encolha se o texto for muito grande */
+}
+
+/* A tag <img> da foto do costureiro */
+.profile-image img {
+    width: 100%;
+    /* Faz a imagem ocupar 100% do container  */
+    height: auto;
+    /* Mantém a proporção da imagem */
+    border-radius: 6px;
+    /* Bordas arredondadas na foto */
+    display: block;
+    /* Remove um pequeno espaço fantasma da imagem que possa existir */
+}
+
+/* Container do texto do slide do costureiro */
+.profile-text {
+    flex-grow: 1;
+    /* Permite que o container cresça para ocupar todo o espaço restante */
+    min-width: 0;
+    /* impede que o texto vaze do card se for muito grande */
+}
+
+/* Nome do Costureiro */
+.profile-text h3 {
+    font-size: 1.5rem;
+    color: #5C8070;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-bottom: 0.75rem;
+    /* Espaço abaixo do nome */
+}
+
+/* Descrição dos projetos do costureiro */
+.profile-text p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #444;
+    line-height: 1.5;
+    /* Espaçamento entre as linhas do texto */
+    text-align: justify;
+    /* Alinha o texto retinho nas duas bordas */
+    margin-bottom: 1.5rem;
+    /* Espaço abaixo do parágrafo */
+}
+
+/* Contato do Perfil*/
+.profile-text .profile-contact {
+    color: #5C8070;
+    /* Cor verde principal */
+    font-weight: bold;
+    /* Deixa o contato em negrito */
+    text-align: left;
+    /* Garante alinhamento à esquerda */
+    margin-bottom: 1.5rem;
+    /* Mantém o espaçamento inferior */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* Mantém a fonte */
+    line-height: 1.5;
+    /* Mantém o espaçamento */
+    font-size: 0.9rem;
+    /* Tamanho de fonte menor */
+}
+
+
+/* Container das 4 fotos de projetos */
+.profile-projects {
+    display: flex;
+    justify-content: center;
+    /* Centraliza as 4 fotos horizontalmente */
+    gap: 10px;
+    /* Espaço de 10px entre cada foto */
+    margin-top: 1rem;
+    /* Espaço acima das fotos */
+    flex-wrap: wrap;
+    /* Permite que as fotos quebrem a linha se não couberem */
+}
+
+/* Cada uma das 4 fotos de projeto */
+.profile-projects img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    /* Faz a imagem preencher o quadrado (80x80) sem distorcer  */
+    border-radius: 4px;
+    border: 1px solid rgba(92, 128, 112, 0.3);
+    /* Borda sutil na cor do site */
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    /* Animação suave de opacidade */
+}
+
+/* Efeito ao passar o mouse sobre as fotos de projeto */
+.profile-projects img:hover {
+    opacity: 1;
+    /* Deixa 100% opaco */
+}
+
+/* Botões de seta do carrossel */
+
+.carousel-btn {
+    position: absolute;
+    /* Posiciona os botões flutuando no carousel-container */
+    top: 50%;
+    /* Desce os botões até a metade da altura do container */
+    transform: translateY(-50%);
+    /* Sobe os botões metade  própria altura deles */
+    background-color: rgba(255, 255, 255, 0.4);
+    /* fundo com um pouco de transparencia*/
+    border: 1px solid rgba(92, 128, 112, 0.3);
+    border-radius: 50%;
+    /* Deixa o botão redondo */
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #5C8070;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+    /* Garante que os botões fiquem acima de todos os elementos */
+}
+
+/* Efeito ao passar o mouse nos botões */
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fica mais opaco */
+}
+
+/* Posição do botão "anterior" na esquerda */
+.carousel-btn.prev {
+    left: 10px;
+    /* A 10px da borda esquerda */
+}
+
+/* Posição  do botão "próximo" na direita */
+.carousel-btn.next {
+    right: 10px;
+    /* A 10px da borda direita  */
+}
+
+/* 3. ESTILOS DAS IMAGENS DE DECORAÇÃO */
+
+/* Ramo */
+.decor-ramo {
+    position: absolute;
+    /* Posicionamento flutuante em relação ao carousel-container) */
+    z-index: 5;
+    /* Fixa acima do fundo (0) mas abaixo dos botões (10) */
+    pointer-events: none;
+    /* Faz o mouse ignorar a imagem para não bloquear cliques nos botões */
+    opacity: 0.9;
+    /* Leve transparência */
+}
+
+/* Ramo superior esquerdo */
+.decor-ramo.top-left {
+    width: 250px;
+    top: -60px;
+    /* Posição acima do card */
+    left: -20px;
+    /* Posição à esquerda do card */
+    transform: rotate(150deg);
+    /* Põe a imagem na diagonal para o efeito de fita crepe */
+}
+
+/* Ramo inferior direito */
+.decor-ramo.bottom-right {
+    width: 250px;
+    bottom: -60px;
+    /* Posição abaixo do card */
+    right: -20px;
+    /* Posição à direita do card */
+    transform: rotate(-30deg);
+    /* Põe a imagem na diagonal para o efeito de fita crepe */
+}
+
+/* Imagem de coração e ramos  */
+.decor-coracaoeramos.top-right-on-card {
+    position: absolute;
+    /* Posicionamento flutuante dentro do profile-card) */
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.9;
+    width: 150px;
+    top: -20px;
+    /* Posição acima do card */
+    right: 60px;
+    /* Distância da borda direita  */
+}
+
+/* Imagem ReVeste Upcycling" */
+.decor-revesteupcycling {
+    position: relative;
+    /* Posição normal, não flutua */
+    display: block;
+    /* Necessário para que margin: auto funcione */
+    margin: 3rem auto 0 auto;
+    /* 3rem de espaço no topo, e centralizado horizontalmente */
+    width: 375px;
+    opacity: 1;
+    z-index: 1;
+    /* Fica no fluxo normal da página */
+}
+
+/* 4. EFEITO HOVER SIMPLES */
+
+.profile-projects img {
+    cursor: pointer;
+    /* Mantém o cursor de ponteiro */
+    transition: transform 0.2s ease-in-out, opacity 0.2s;
+    /* Adiciona transição para o scale */
+    /* Mantém opacidade e borda*/
+    opacity: 0.8;
+    border: 1px solid rgba(92, 128, 112, 0.3);
+    border-radius: 4px;
+    width: 80px;
+    /* Garante que a base seja 80px */
+    height: 80px;
+    object-fit: cover;
+}
+
+.profile-projects img:hover {
+    transform: scale(1.5);
+    /* Aumenta a imagem em 2.5x */
+    opacity: 1;
+    /* Mantém a opacidade total */
+    z-index: 15;
+    /* Traz a imagem aumentada para frente de outras imagens próximas */
+    position: relative;
+    /* Necessário para z-index funcionar corretamente aqui */
+}
+
+/* 5. RESPONSIVIDADE */
+
+/* Breakpoint para telas de tablet. É ativado quando a largura da tela for 1300px OU MENOR
+*/
+@media (max-width: 1300px) {
+
+    /* Ajusta o coração para não ser coberto pelo texto */
+    .decor-coracaoeramos.top-right-on-card {
+        width: 100px;
+        /* Deixa pequenininho */
+        top: -15px;
+        /* Sobe mais para o topo */
+        right: 40px;
+        /* Reajusta a posição horizontal */
+    }
+}
+
+
+/* Breakpoint) para telas de tablet menores. É ativado quando a largura da tela for 1100px OU MENOR
+*/
+@media (max-width: 1100px) {
+
+    /* Diminui o título da navbar */
+    .navbar-title {
+        font-size: 1.1rem;
+    }
+
+    /* Card de perfil para mobile */
+    .profile-card {
+        flex-direction: column;
+        /* põe a imagem em cima, texto embaixo */
+        text-align: center;
+        /* Centraliza o texto */
+        min-height: auto;
+        /* Remove a altura mínima */
+        padding: 1.5rem;
+        /* Diminui o espaçamento interno */
+        /* Centraliza a imagem no layout de coluna */
+        align-items: center;
+    }
+
+    /*Faz a imagem ocupar mais espaço no layout de coluna */
+    .profile-image {
+        flex-basis: auto;
+        /* Remove o tamanho fixo */
+        width: 90%;
+        /* Ocupa 80% da largura do card */
+        max-width: 300px;
+        /* Mas não deixa a imagem ficar gigante em telas maiores que 900px */
+        margin-bottom: 1rem;
+        /* Espaço abaixo da imagem */
+    }
+
+    /* Diminui o padding lateral do container no mobile */
+    .carousel-container {
+        padding: 0 50px;
+    }
+
+    /* Diminui o tamanho dos botões de seta */
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    /* Aproxima os botões das bordas */
+    .carousel-btn.prev {
+        left: 5px;
+    }
+
+    .carousel-btn.next {
+        right: 5px;
+    }
+
+    /* Ajustes de decoração para mobile */
+    .decor-ramo.top-left {
+        width: 200px;
+        top: -60px;
+        left: 0px;
+    }
+
+    .decor-ramo.bottom-right {
+        width: 200px;
+        bottom: -60px;
+        right: -20px;
+    }
+
+    /* Ajuste do coração para mobile que sobrescreve o breakpoint de 1100px */
+    .decor-coracaoeramos.top-right-on-card {
+        width: 88px;
+        top: -10px;
+        right: 30px;
+    }
+
+    /* Diminui a logo principal no mobile */
+    .decor-revesteupcycling {
+        width: 250px;
+        margin-top: 2rem;
+    }
+}
+
+/* Breakpoint para telas menores. É ativado quando a largura da tela for 900px OU MENOR
+*/
+@media (max-width: 900px) {
+
+    /* Esconde as decorações para não poluir a tela */
+    /*.decor-ramo,*/
+    .decor-coracaoeramos {
+        /* Adicionado .decor-coracaoeramos */
+        display: none;
+    }
+
+    /* Ajustes de decoração para mobile */
+    .decor-ramo.top-left {
+        width: 200px;
+        top: -60px;
+        left: 0px;
+    }
+
+    .decor-ramo.bottom-right {
+        width: 200px;
+        bottom: -60px;
+        right: -20px;
+    }
+
+    /* Breakpoint para telas BEM pequenas. É ativado quando a largura da tela for 700px OU MENOR */
+    @media (max-width: 700px) {
+
+        /* Esconde as decorações para não poluir a tela */
+        /* .decor-ramo, */
+        .decor-coracaoeramos {
+            display: none;
+        }
+
+        /* Ajustes de decoração para mobile */
+        .decor-ramo.top-left {
+            width: 100px;
+            top: -30px;
+            left: -20px;
+        }
+
+        .decor-ramo.bottom-right {
+            width: 100px;
+            bottom: -30px;
+            right: -20px;
+        }
+
+        /* Ajuste do tamanho da imagem em telas muito pequenas */
+        .profile-image {
+            width: 90%;
+            /* Ocupa ainda mais espaço */
+        }
+
+        /* Reduzir padding do card em telas muito pequenas */
+        .profile-card {
+            padding: 1rem;
+            /* Adiciona overflow:hidden APENAS para telas <= 700px */
+            overflow: hidden;
+        }
+
+        /*Reduzir ainda mais o padding do container se necessário */
+        .carousel-container {
+            padding: 0 9px;
+        }
+    }
+}
